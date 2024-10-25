@@ -15,6 +15,9 @@ on:
       - "lesson_11/arrays_ts/**"
       - "lesson_12/structs_java/**"
       - "lesson_12/structs_ts/**"
+      - "lesson_13/maps_java/**"
+      - "lesson_13/maps_ts/**"
+      - "lesson_14/exceptions/**"
 
 jobs:
   build:
@@ -105,3 +108,17 @@ jobs:
       run: |
         npm ci
         npm run compile
+
+    - name: Build Lesson 13 with Java
+      working-directory: ./lesson_13/maps_java
+      run: ./gradlew assemble
+
+    - name: Build Lesson 13 with Node.js
+      working-directory: ./lesson_13/maps_ts
+      run: |
+        npm ci
+        npm run compile
+
+    - name: Build Lesson 14 with Java
+      working-directory: ./lesson_14/exceptions
+      run: ./gradlew assemble
